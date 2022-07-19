@@ -1,0 +1,50 @@
+.main-header{
+    display: flex;
+    flex-wrap: wrap;
+
+    &__logo-container{
+        background-color: #944;
+        padding: 1em;
+        flex-basis: 5em;
+
+        @media (min-width: 1024px){
+                flex-basis: 10em;
+        }
+    }
+    &__search-form-container{
+        background-color: #494;
+        padding: 1em;
+        flex-grow: 1;
+
+        @media (min-width: 768px){
+            order: 2;
+            flex: 0 1 15em;
+        }
+    }
+    &__cart-button-container{
+        background-color: #444;
+        padding: 1em;
+        @media (min-width: 768px){
+            order: 3
+        }
+    }
+    &__hamburger-button-container{
+        background-color: #47b;
+        padding: 1em;
+        @media (min-width: 768px){
+            display: none;
+        }
+    }
+    &__main-nav-container{
+        background-color: yellow;
+        flex-basis: 100%;
+        display: none;
+        flex-grow: 1;
+        @media (min-width: 768px){
+            flex-grow: 1;
+            flex-basis: auto;
+            order: 1;
+            display: block;
+        }
+    }
+}

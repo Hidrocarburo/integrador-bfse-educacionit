@@ -1,0 +1,31 @@
+.card{
+    width: 200px;
+    max-width: 300px;
+    flex: auto;
+    box-shadow:
+        0 3px 5px rgba(0,0,0,.2)
+        0 0 3px rgba(0,0,0,.2)
+    ;
+    border-radius: 5px 5px 0 0;
+    transition: all .2s;
+
+    &:hover{
+        transform: scale(1.05);
+        transform-origin: bottom;
+    }
+    &:nth-child(5n+1){
+        background-color: #7b55b1;
+    }
+    &:nth-child(5n+2){
+        background-color: #8b8b9d;
+    }
+    &:nth-child(5n+3){
+        background-color: #cc6f3a;
+    }
+    &:nth-child(5n+4){
+        background-color: #c11a57;
+    }
+    &:nth-child(5n+5){
+        background-color: #1c41ba;
+    }   
+}
