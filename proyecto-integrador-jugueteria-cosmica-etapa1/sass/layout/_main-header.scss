@@ -3,16 +3,19 @@
     flex-wrap: wrap;
 
     &__logo-container{
-        background-color: #944;
         padding: 1em;
         flex-basis: 5em;
 
-        @media (min-width: 1024px){
+        @media (min-width: 768px){
                 flex-basis: 10em;
         }
     }
+
+    &__logo{
+        width: 64px;
+        height: auto;
+    }
     &__search-form-container{
-        background-color: #494;
         padding: 1em;
         flex-grow: 1;
 
@@ -22,14 +25,12 @@
         }
     }
     &__cart-button-container{
-        background-color: #444;
         padding: 1em;
         @media (min-width: 768px){
             order: 3
         }
     }
     &__hamburger-button-container{
-        background-color: #47b;
         padding: 1em;
         @media (min-width: 768px){
             display: none;
