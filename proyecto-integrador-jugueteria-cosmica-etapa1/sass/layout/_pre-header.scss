@@ -1,0 +1,48 @@
+@use '../abstracts/colors' as c;
+
+.pre-header{
+    width: 100%;
+    background-color: c.$color3;
+    font-size: 12px;
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem 0.8rem;
+    top: 0;
+    height: 32px;
+    z-index: 100;
+
+    &__text-container{
+        display: flex;
+    }
+
+    &__text{
+        &--link{
+            color: c.$color1;
+        }
+    }
+
+    &__text:not(&__text:last-child)::after{
+        content: '|';
+        padding: 0 0.3rem;
+    }
+
+    &__socials-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__socials-img{
+        width: auto;
+        height: 1rem;
+        padding-left: 1rem;
+    }
+
+    &__socials-link{
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
+}

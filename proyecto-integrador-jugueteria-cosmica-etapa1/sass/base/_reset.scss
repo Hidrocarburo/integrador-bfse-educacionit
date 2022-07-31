@@ -1,3 +1,6 @@
+@use '../abstracts/fonts' as f;
+@use '../abstracts/colors' as c;
+
 *,
 *::after,
 *::before{
@@ -5,4 +8,7 @@
 }
 body{
     box-sizing: border-box;
+    font-family: f.$body;
+    background-color: c.$color5;
+    min-height: 2000px;
 }

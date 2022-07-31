@@ -1,51 +1,78 @@
+@use '../abstracts/colors' as c;
+
 .main-header{
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    position: fixed;
+    gap: 1.5rem;
+    background-color: c.$color5;
+    width: 100%;
+    padding: 0 0.8rem;
+    top: 32px;
+    height: 72px;
+    z-index: 100;
+
+    &__hamburger-button-container{
+        order: 0;
+        // @media (min-width: 768px){
+        //     display: none;
+        // }
+    }
 
     &__logo-container{
-        padding: 1em;
-        flex-basis: 5em;
+        order: 1;
+        padding: 0.5em 0;
 
-        @media (min-width: 768px){
-                flex-basis: 10em;
-        }
+        // @media (min-width: 768px){
+        //         flex-basis: 10em;
+        // }
     }
 
     &__logo{
-        width: 64px;
+        width: 57px;
         height: auto;
     }
-    &__search-form-container{
-        padding: 1em;
-        flex-grow: 1;
 
-        @media (min-width: 768px){
-            order: 2;
-            flex: 0 1 15em;
-        }
+    &__search-form-container{
+        order: 2;
+        flex-grow: 1;
+        text-align: right;
+
+        // @media (min-width: 768px){
+        //     order: 2;
+        //     flex: 0 1 15em;
+        // }
     }
+
+    &__search-form-img{
+        width: 1.25rem;
+    }
+
     &__cart-button-container{
-        padding: 1em;
-        @media (min-width: 768px){
-            order: 3
-        }
+        order: 3;
+        // @media (min-width: 768px){
+        //     order: 3
+        // }
     }
-    &__hamburger-button-container{
-        padding: 1em;
-        @media (min-width: 768px){
-            display: none;
-        }
+
+    &__cart-button-img{
+        width: 1.25rem;
     }
+    
     &__main-nav-container{
         background-color: yellow;
-        flex-basis: 100%;
-        display: none;
+        position: absolute;
         flex-grow: 1;
-        @media (min-width: 768px){
-            flex-grow: 1;
-            flex-basis: auto;
-            order: 1;
-            display: block;
-        }
+        top: 72px;
+        left: -55vw;
+        z-index: 2;
+        transition: left 250ms ease-out;
+        // @media (min-width: 768px){
+        //     flex-grow: 1;
+        //     flex-basis: auto;
+        //     order: 1;
+        //     display: block;
+        // }
     }
 }

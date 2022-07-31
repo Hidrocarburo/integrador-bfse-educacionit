@@ -1,26 +1,51 @@
+@use '../abstracts/colors' as c;
+
 .main-nav{
-    background-color: #22262a;
+    position: absolute;
+    z-index: 150;
+    min-height: 100vh;
+    background-color: c.$color5;
+    box-shadow: 2px 4px 4px 0 #0005;
+    width: 50vw;
 
     &__list{
         margin: 0;
         padding: 0;
-        background-color: pink;
         list-style-type: none;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
 
-        @media (min-width: 768px){
-            flex-direction: row;
-        }
+        // @media (min-width: 768px){
+        //     flex-direction: row;
+        // }
     }
     &__item{
         text-align: center;
+        background-color: c.$color5;
+        &:first-child::before{
+            content: '';
+            height: 1px;
+            display: block;
+            width: 80%;
+            margin: auto;
+            border-radius: 50px;
+            background-color: c.$color2;
+            margin-top: 1rem;
+        }
+        &::after{
+            content: '';
+            height: 1px;
+            display: block;
+            width: 80%;
+            margin: auto;
+            border-radius: 50px;
+            background-color: c.$color2;
+        }
     }
     &__link{
         display: block;
         width: 100%;
-        background-color: orange;
         padding: 1em .7em;
         color: #222;
         font-size: 1.2em;
@@ -31,9 +56,9 @@
             background-color: orangered;
             outline: none  /* ??? */
         }
-        @media (min-width: 1024px){
-            padding-left: 1em;
-            padding-right: 1em;
-        }
+        // @media (min-width: 1024px){
+        //     padding-left: 1em;
+        //     padding-right: 1em;
+        // }
     }
 }

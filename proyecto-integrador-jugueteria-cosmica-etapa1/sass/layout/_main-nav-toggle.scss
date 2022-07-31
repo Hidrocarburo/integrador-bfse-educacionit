@@ -2,6 +2,6 @@
     display: none;
 
     &:checked ~ .main-header .main-header__main-nav-container{
-        display: block;
+        left: 0;
     }
 }

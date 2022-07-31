@@ -9,6 +9,7 @@
 
 // layout
 @use 'layout/hamburger-button';
+@use 'layout/pre-header';
 @use 'layout/main-header';
 @use 'layout/main-nav';
 @use 'layout/main-nav-toggle';
@@ -16,6 +17,7 @@
 
 // components
 @use 'components/card';
+@use 'components/separator-line';
 
 // pages
 @use 'pages/index';
