@@ -1,0 +1,35 @@
+@use '../abstracts/colors' as c;
+@use '../abstracts/fonts' as f;
+
+.hero-section{
+    background: c.$linear-gradient1;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    &--blue{
+        flex-direction: row-reverse;
+        background: c.$linear-gradient2
+    }
+
+    &__text{
+        color: c.$color5;
+        font-size: 2rem;
+        font-family: f.$title1;
+        font-weight: 400;
+        text-align: center;
+        text-shadow: -12px 4px 8px rgba(0, 0, 0, 0.25);
+
+        &--title2{
+            display: block;
+            font-family: f.$title2;
+        }
+    }
+
+    &__img{
+        height: 86px;
+    }
+}

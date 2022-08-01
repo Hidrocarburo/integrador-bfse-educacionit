@@ -3,7 +3,7 @@
 .pre-header{
     width: 100%;
     background-color: c.$color3;
-    font-size: 12px;
+    font-size: 0.75rem;
     display: flex;
     position: fixed;
     justify-content: space-between;
@@ -21,6 +21,7 @@
         &--link{
             color: c.$color1;
         }
+        margin: 0;
     }
 
     &__text:not(&__text:last-child)::after{

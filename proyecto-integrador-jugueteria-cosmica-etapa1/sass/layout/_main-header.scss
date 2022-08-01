@@ -5,13 +5,12 @@
     flex-wrap: wrap;
     align-items: center;
     position: fixed;
-    gap: 1.5rem;
     background-color: c.$color5;
     width: 100%;
     padding: 0 0.8rem;
     top: 32px;
-    height: 72px;
     z-index: 100;
+    border-bottom: 4px solid c.$color6;
 
     &__hamburger-button-container{
         order: 0;
@@ -23,7 +22,7 @@
     &__logo-container{
         order: 1;
         padding: 0.5em 0;
-
+        margin-left: 1.5rem;
         // @media (min-width: 768px){
         //         flex-basis: 10em;
         // }
@@ -38,6 +37,7 @@
         order: 2;
         flex-grow: 1;
         text-align: right;
+        margin-right: 1.5rem;
 
         // @media (min-width: 768px){
         //     order: 2;

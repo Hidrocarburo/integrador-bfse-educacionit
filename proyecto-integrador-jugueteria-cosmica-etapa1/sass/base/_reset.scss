@@ -9,6 +9,9 @@
 body{
     box-sizing: border-box;
     font-family: f.$body;
+    color: c.$color6;
     background-color: c.$color5;
-    min-height: 2000px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }

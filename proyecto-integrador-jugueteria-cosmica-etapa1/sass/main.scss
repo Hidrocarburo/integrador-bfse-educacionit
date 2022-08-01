@@ -13,11 +13,14 @@
 @use 'layout/main-header';
 @use 'layout/main-nav';
 @use 'layout/main-nav-toggle';
-// @use 'layout/main-footer';
+@use 'layout/main-content';
+@use 'layout/main-footer';
 
 // components
 @use 'components/card';
-@use 'components/separator-line';
+@use 'components/brand';
+@use 'components/newsletter-form';
+@use 'components/hero-section';
 
 // pages
 @use 'pages/index';

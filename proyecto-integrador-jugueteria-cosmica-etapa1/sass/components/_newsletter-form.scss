@@ -1,0 +1,72 @@
+@use '../abstracts/colors' as c;
+
+.newsletter-form{
+    background-color: c.$color2;
+    padding: 0.75rem 0.8rem;
+
+    &__form{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__text{
+        display: block;
+        width: 100%;
+        margin: 0 0 0.5rem 0;
+        color: c.$color5;
+    }
+
+    &__input-container{
+        position: relative;
+        display: flex;
+        flex-grow: 1;
+    }
+
+    &__input{
+        border: 1px solid c.$color7;
+        border-radius: 50px;
+        height: 3rem;
+        font-size: 0.875rem;
+        padding: 0.5rem 0.8rem 0 0.8rem;
+        flex-grow: 1;
+        margin-right: 1rem;
+
+        &::placeholder{
+            opacity: 0;
+        }
+
+        &:focus::placeholder{
+            opacity: 1;
+        }
+    }
+
+    &__label{
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 0.875rem;
+        transition-duration: 150ms;
+    }
+
+    &__input:focus ~ &__label,
+    &__input:not(:placeholder-shown) ~ &__label{
+        top: 25%;
+        font-size: 0.75rem;
+        color: c.$color7;
+    }
+
+    &__btn{
+        padding: 0;
+        border: 0;
+        background: none;
+    }
+
+    &__btn-img{
+        width: 1.25rem;
+        height: auto;
+        filter: invert(1);
+    }
+
+    
+}

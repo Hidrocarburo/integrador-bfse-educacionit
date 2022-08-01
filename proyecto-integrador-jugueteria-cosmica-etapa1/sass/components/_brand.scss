@@ -1,0 +1,30 @@
+@use '../abstracts/colors' as c;
+@use '../abstracts/fonts' as f;
+
+.brand{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 0.8rem;
+    align-items: center;
+    color: c.$color5;
+
+    &__img{
+        height: 72px;
+        width: auto;
+
+        &--inverted{
+            filter: invert(1);
+        }
+    }
+
+    &__text{
+        font-family: f.$title1;
+        font-size: 1.5rem;
+        text-shadow: -4px 4px 8px #0005;
+
+        &--title2{
+            font-family: f.$title2;
+        }
+    }
+}
