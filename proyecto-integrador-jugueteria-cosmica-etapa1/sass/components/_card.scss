@@ -1,7 +1,8 @@
 @use '../abstracts/colors' as c;
 
 .card{
-    min-width: 140px;
+    min-width: 130px;
+    width: 25%;
     max-width: 240px;
     flex: auto;
     box-shadow:2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -12,6 +13,7 @@
         display: flex;
         flex-direction: column;
         background-color: c.$color5;
+        height: 100%;
     }
 
     &__image-container{
@@ -46,13 +48,20 @@
         border-left: 1px solid #0002;
         border-right: 1px solid #0002;
         border-bottom: 1px solid #0002;
+        flex: auto;
+    }
+
+    &__heading-container{
+        display: flex;
+        align-items: flex-end;
+        padding: 0 0.25rem;
     }
 
     &__heading{
         text-transform: uppercase;
         font-weight: 700;
-        padding: 0 0.25rem;
         margin: 0;
+        height: fit-content;
     }
 
     &__details{
@@ -61,6 +70,8 @@
         display: flex;
         flex-direction: column;
         gap: 1rem;
+        flex-grow: 1;
+        justify-content: space-between;
     }
 
     &__price-container{
