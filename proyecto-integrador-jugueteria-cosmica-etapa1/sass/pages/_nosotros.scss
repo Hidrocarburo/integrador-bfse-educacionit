@@ -1,0 +1,37 @@
+@use '../abstracts/colors' as c;
+
+.about-us{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0.8rem;
+    justify-content: space-evenly;
+    max-width: 1800px;
+    margin: auto;
+
+    @media (min-width: 768px){
+        flex-direction: row-reverse;
+    }
+
+    &__img{
+        height: 175px;
+        width: auto;
+        max-width: 100%;
+        @media(min-width: 768px){
+            height: 260px;
+        }
+        @media(min-width: 1024px){
+            height: 460px;
+        }
+    }
+
+    &__paragraph-container{
+        max-width: 400px;
+    }
+
+    &__paragraph{
+        &--muted{
+            color: c.$color7;
+        }
+    }
+}

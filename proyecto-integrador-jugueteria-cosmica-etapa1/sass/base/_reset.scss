@@ -1,6 +1,12 @@
 @use '../abstracts/fonts' as f;
 @use '../abstracts/colors' as c;
 
+:root{
+    @media(min-width: 768px){
+        font-size: 18px;
+    }
+}
+
 *,
 *::after,
 *::before{

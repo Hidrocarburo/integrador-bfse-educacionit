@@ -15,6 +15,9 @@
 @use 'layout/main-nav-toggle';
 @use 'layout/main-content';
 @use 'layout/main-footer';
+@use 'layout/search-toggle';
+@use 'layout/search-input';
+@use 'layout/form';
 
 // components
 @use 'components/card';
@@ -24,6 +27,9 @@
 
 // pages
 @use 'pages/index';
+@use 'pages/alta';
+@use 'pages/contacto';
+@use 'pages/nosotros';
 
 // themes
 

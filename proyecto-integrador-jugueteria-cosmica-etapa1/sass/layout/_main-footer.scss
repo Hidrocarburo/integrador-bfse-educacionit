@@ -4,6 +4,21 @@
     background: c.$linear-gradient1;
     min-height: 20vh;
 
+    @media(min-width: 768px){
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        'brand brand'
+        'categories newsletter'
+        'copyright copyright'
+    }
+
+    &__brand-container{
+        @media(min-width:768px){
+            grid-area: brand;
+        }
+    }
+
     &__categories-container{
         padding: 0rem 0 2rem;
         margin: 0 0.8rem;
@@ -11,7 +26,21 @@
         flex-wrap: wrap;
         gap: 1rem;
         margin-top: 1rem;
-        border-bottom: 1px solid c.$color7;
+
+        @media(min-width:768px){
+            grid-area: categories;
+        }
+    }
+
+    &__newsletter-form-container{
+        background-color: c.$color2;
+        height: fit-content;
+        justify-self: flex-end;
+        @media(min-width:768px){
+            grid-area: newsletter;
+            background-color: transparent;
+            margin-right: 2rem;
+        }
     }
 
     &__category{
@@ -39,6 +68,10 @@
 
     &__copyright-container{
         padding: 2rem 0.8rem;
+        border-top: 1px solid c.$color7;
+        @media(min-width:768px){
+            grid-area: copyright;
+        }
     }
 
     &__copyright-text{

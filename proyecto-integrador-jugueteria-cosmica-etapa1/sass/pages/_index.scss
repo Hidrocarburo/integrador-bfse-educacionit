@@ -2,6 +2,20 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 2rem 0.75rem 4rem;
+    padding: 2rem 0.8rem 4rem;
     gap: 1rem;
+    margin: auto;
+
+    @media(min-width: 1024px){
+        gap: 4rem;
+    }
+}
+
+.section-cards{
+    max-width: 1800px;
+    margin: auto;
+
+    &__header{
+        text-align: center;
+    }
 }

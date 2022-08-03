@@ -35,11 +35,15 @@
     }
 
     &__wishlist-btn{
-        width: 1.25rem;
+        width: 1.5rem;
         height: auto;
         position: absolute;
         top: 10%;
         right: 0.5rem;
+
+        @media(min-width: 768px){
+            width: 1.75rem;
+        }
     }
 
     &__content{
@@ -96,6 +100,10 @@
 
     &__description-container{
         padding: 0 0.25rem;
+
+        @media (min-width: 768px){
+            padding: 0 0.5rem;
+        }
     }
 
     &__description{
@@ -108,6 +116,11 @@
         height: 2rem;
         border: 1px solid c.$color6;
         border-radius: 0 0 5px 5px;
+        transition-duration: 200ms;
+
+        &:hover{
+            background-color: c.$color9;
+        }
     }
 
     &__link{

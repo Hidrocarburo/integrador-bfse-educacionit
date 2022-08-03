@@ -1,0 +1,206 @@
+@use '../abstracts/colors' as c;
+
+.form{
+    width: 100%;
+
+    &__form{
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    &__input-container,
+    &__textarea-container,
+    &__select-container{
+        position: relative;
+        display: flex;
+        flex: auto;
+    }
+
+    &__file-container{
+        display: flex;
+        position: relative;
+        flex: auto;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__checkbox-container{
+        position: relative;
+        display: flex;
+        flex: 20 1 auto;
+        width: 60%;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.5rem;
+    }
+
+    &__input-group{
+        display: flex;
+        gap: 1rem;
+        max-width: 100%;
+        justify-content: space-between;
+    }
+
+    &__input{
+        border: 1px solid c.$color7;
+        border-radius: 50px;
+        height: 3rem;
+        font-size: 0.875rem;
+        padding: 0.5rem 0.8rem 0 0.8rem;
+        flex: auto;
+        width: 1%;
+        background-color: c.$color10;
+
+        &--error{
+            background-color: c.$color12;
+            border-color: c.$color11;
+        }
+
+        &::placeholder{
+            opacity: 0;
+        }
+
+        &:focus::placeholder{
+            opacity: 1;
+        }
+    }
+
+    &__textarea{
+        border: 1px solid c.$color7;
+        border-radius: 25px;
+        font-size: 0.875rem;
+        padding: 1.125rem 0.8rem 0 0.8rem;
+        flex: auto;
+        background-color: c.$color10;
+
+        &::placeholder{
+            opacity: 0;
+        }
+
+        &:focus::placeholder{
+            opacity: 1;
+        }
+
+        &--error{
+            background-color: c.$color12;
+            border-color: c.$color11;
+            color: c.$color5;
+        }
+    }
+
+    &__select{
+        border: 1px solid c.$color7;
+        border-radius: 50px;
+        height: 3rem;
+        font-size: 0.875rem;
+        padding: 0rem 0.8rem 0 0.8rem;
+        flex: auto;
+        appearance: none;
+        background-color: c.$color10;
+
+        &::placeholder{
+            opacity: 0;
+        }
+
+        &:focus::placeholder{
+            opacity: 1;
+        }
+
+        &--error{
+            background-color: c.$color12;
+            border-color: c.$color11;
+            color: c.$color5;
+        }
+    }
+
+    &__file{
+        display: none;
+    }
+
+    &__file-text{
+        padding: 0 0.8rem;
+    }
+
+    &__file-label{
+        padding: 1rem 2rem;
+        background-color: c.$color6;
+        border-radius: 50px;
+        color: c.$color5;
+        box-shadow: 0px 3px 1px #0005;
+        transition-duration: 200ms;
+        cursor: text;
+
+        &:hover{
+            background-color: c.$color7;
+        }
+    }
+
+
+    &__label,
+    &__textarea-label{
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 0.875rem;
+        transition-duration: 150ms;
+        cursor: text;
+
+        &--error{
+            color: c.$color5;
+        }
+    }
+
+    &__input:focus ~ &__label,
+    &__textarea:focus ~ &__textarea-label,
+    &__input:not(:placeholder-shown) ~ &__label,
+    &__textarea:not(:placeholder-shown) ~ &__textarea-label{
+        top: 0.875rem;
+        font-size: 0.75rem;
+        color: c.$color7;
+
+        &--error{
+            color: c.$color5;
+        }
+    }
+
+    &__submit-btn-container{
+        display: flex;
+        justify-content: center;
+    }
+
+    &__submit-btn{
+        border: 1px solid c.$color7;
+        width: 50%;
+        padding: 1rem 2rem;
+        background-color: c.$color3;
+        border-radius: 50px;
+        color: c.$color6;
+        font-weight: 700;
+        box-shadow: 0px 3px 1px #0005;
+        transition-duration: 200ms;
+        cursor: pointer;
+
+        &:hover{
+            background-color: c.$color7;
+        }
+    }
+
+    &__error-list-container{
+        background-color: c.$color12;
+        border: 2px solid c.$color11;
+        color: c.$color5;
+
+        &--hidden{
+            display: none;
+        }
+    }
+
+    &__error-list{
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0 2rem;
+    }
+}

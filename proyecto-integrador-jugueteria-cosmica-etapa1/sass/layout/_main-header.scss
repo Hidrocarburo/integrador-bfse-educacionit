@@ -2,7 +2,7 @@
 
 .main-header{
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     position: fixed;
     background-color: c.$color5;
@@ -23,14 +23,19 @@
         order: 1;
         padding: 0.5em 0;
         margin-left: 1.5rem;
-        // @media (min-width: 768px){
-        //         flex-basis: 10em;
-        // }
+        @media (min-width: 768px){
+                margin-left: 0;
+                margin-right: 1.5rem;
+        }
     }
 
     &__logo{
         width: 57px;
         height: auto;
+        max-width: 100%;
+        @media (min-width: 768px){
+            width: 64px;
+    }
     }
 
     &__search-form-container{
@@ -43,6 +48,10 @@
         //     order: 2;
         //     flex: 0 1 15em;
         // }
+
+        @media (min-width: 450px) and (max-width: 767px), (min-width: 1024px){
+            display: none;
+        }
     }
 
     &__search-form-img{
@@ -68,11 +77,36 @@
         left: -55vw;
         z-index: 2;
         transition: left 250ms ease-out;
-        // @media (min-width: 768px){
-        //     flex-grow: 1;
-        //     flex-basis: auto;
-        //     order: 1;
-        //     display: block;
-        // }
+        @media (min-width: 768px){
+            background-color: transparent;
+            position: static;
+            flex-grow: 1;
+            flex-basis: auto;
+            order: 1;
+            display: block;
+        }
+    }
+
+    &__search-form-label{
+        cursor: pointer;
+    }
+
+    &__search-input-container{
+        display: none;
+        position: absolute;
+        background-color: c.$color5;
+        width: 100%;
+        left: 0;
+        height: 100%;
+        z-index: 200;
+
+        @media (min-width: 450px) and (max-width: 767px), (min-width: 1024px){
+            position: static;
+            width: auto;
+            flex: auto;
+            display: block;
+            order: 2;
+            margin: 0 1.5rem;
+        }
     }
 }

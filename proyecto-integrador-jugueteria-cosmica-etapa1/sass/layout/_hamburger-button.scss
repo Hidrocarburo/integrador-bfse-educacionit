@@ -8,6 +8,10 @@
     position: relative;
     border-radius: .2em;
 
+    @media(min-width: 768px){
+        display: none;
+    }
+
     &__top-bread{
         display: block;
         position: absolute;

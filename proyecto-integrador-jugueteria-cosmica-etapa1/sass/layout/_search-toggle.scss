@@ -1,0 +1,7 @@
+.search-toggle{
+    display: none;
+
+    &:checked ~ .main-header .main-header__search-input-container{
+        display: block;
+    }
+}

@@ -1,4 +1,8 @@
 .main-content{
     flex: auto;
     margin-top: 105px;
+
+    @media (min-width: 768px){
+        margin-top: 112px;
+    }
 }

@@ -10,6 +10,10 @@
     justify-content: center;
     gap: 2rem;
 
+    @media(min-width: 768px){
+        height: 250px;
+    }
+
     &--blue{
         flex-direction: row-reverse;
         background: c.$linear-gradient2
@@ -27,9 +31,21 @@
             display: block;
             font-family: f.$title2;
         }
+
+        &--uppercase{
+            text-transform: uppercase;
+        }
+
+        @media(min-width: 768px){
+            font-size: 4rem;
+        }
     }
 
     &__img{
         height: 86px;
+        max-width: 100%;
+        @media(min-width: 768px){
+            height: 170px;
+        }
     }
 }

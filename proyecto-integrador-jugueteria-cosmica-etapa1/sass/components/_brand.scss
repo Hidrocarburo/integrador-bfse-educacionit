@@ -26,5 +26,9 @@
         &--title2{
             font-family: f.$title2;
         }
+
+        @media(min-width: 768px){
+            font-size: 2rem;
+        }
     }
 }

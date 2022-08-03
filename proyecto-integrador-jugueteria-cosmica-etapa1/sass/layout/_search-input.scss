@@ -1,0 +1,79 @@
+@use '../abstracts/colors' as c;
+
+.search-input{
+    display: flex;
+    height: 100%;
+    padding: 0 0.8rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background-color: c.$color5;
+
+    @media(min-width: 450px) and (max-width: 767px), (min-width: 1024px){
+        padding: 0;
+        gap: 0.5rem;
+        max-width: 300px;
+        margin-left: auto;
+    }
+
+    &__close-btn{
+
+        @media(min-width: 450px) and (max-width: 767px), (min-width: 1024px){
+            display: none;
+        }
+    }
+
+    &__img{
+        width: 1.25rem;
+        height: auto;
+        cursor: pointer;
+    }
+
+    &__input-container{
+        position: relative;
+        display: flex;
+        flex-grow: 1;
+    }
+
+    &__input{
+        border: 1px solid c.$color7;
+        border-radius: 50px;
+        height: 3rem;
+        font-size: 0.875rem;
+        padding: 0.5rem 0.8rem 0 0.8rem;
+        flex-grow: 1;
+        background-color: c.$color10;
+
+        &::placeholder{
+            opacity: 0;
+        }
+
+        &:focus::placeholder{
+            opacity: 1;
+        }
+
+        @media (min-width: 450px) and (max-width: 767px), (min-width: 1024px){
+            border-color: c.$color8;
+        }
+    }
+
+    &__label{
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 0.875rem;
+        transition-duration: 150ms;
+        cursor: text;
+        @media (min-width: 450px) and (max-width: 767px), (min-width: 1024px){
+            color: c.$color7;
+        }
+    }
+
+    &__input:focus ~ &__label,
+    &__input:not(:placeholder-shown) ~ &__label{
+        top: 25%;
+        font-size: 0.75rem;
+        color: c.$color7;
+    }
+}
