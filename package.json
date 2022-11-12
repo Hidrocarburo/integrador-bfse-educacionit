@@ -1,0 +1,19 @@
+{
+  "name": "bc_56937-proyecto_integrador-etapa_3-mateo_joel_nores_cristaldo",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Mateo Joel Nores Cristaldo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "joi": "^17.7.0",
+    "mongoose": "^6.7.2",
+    "multer": "^1.4.5-lts.1"
+  }
+}

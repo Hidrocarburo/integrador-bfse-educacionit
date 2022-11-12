@@ -1,0 +1,60 @@
+{
+    "products": [
+        {
+            "id": "p0",
+            "name": "Mario",
+            "picture": "/img/products/mario.png",
+            "price": "500",
+            "description": "Figura del fontanero favorito de los niños."
+        },
+        {
+            "id": "p1",
+            "name": "Fiat 500",
+            "picture": "/img/products/fiat-500.png",
+            "price": "1200",
+            "description": "Auto de juguete réplica del modelo FIAT 500 color rosa."
+        },
+        {
+            "id": "p2",
+            "name": "Pug",
+            "picture": "/img/products/pug.png",
+            "price": "900",
+            "description": "Figura de perro raza Pug sacando la lengua."
+        },
+        {
+            "id": "p3",
+            "name": "Pistola de agua",
+            "picture": "/img/products/pistola-de-agua.png",
+            "price": "2600",
+            "description": "Pistola de agua ideal para el verano."
+        },
+        {
+            "id": "p4",
+            "name": "Gato Sphynx",
+            "picture": "/img/products/gato-sphynx.png",
+            "price": "800",
+            "description": "Figura de gato raza Sphynx sentado."
+        },
+        {
+            "id": "p5",
+            "name": "Robot",
+            "picture": "/img/products/robot.png",
+            "price": "5800",
+            "description": "Robot que camina y habla mediante órdenes de voz."
+        },
+        {
+            "id": "p6",
+            "name": "Wario",
+            "picture": "/img/products/wario.png",
+            "price": "500",
+            "description": "Figura del antíguo antagonista y antihéroe amigo de Mario."
+        },
+        {
+            "id": "p7",
+            "name": "Auto de carrera",
+            "picture": "/img/products/auto-de-carrera.png",
+            "price": "1200",
+            "description": "Auto de carrera controlable a control remoto."
+        }
+    ]
+}

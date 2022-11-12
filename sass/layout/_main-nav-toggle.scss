@@ -1,0 +1,12 @@
+.main-nav-toggle{
+    display: none;
+
+    &:checked ~ .main-header .main-header__main-nav-container{
+        left: 0;
+        animation: main-nav-opened 10ms linear forwards;
+    }
+}
+
+@keyframes main-nav-opened {
+    0% {opacity: 1}
+}

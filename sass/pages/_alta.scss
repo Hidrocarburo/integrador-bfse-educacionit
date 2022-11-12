@@ -1,0 +1,9 @@
+.upload-form{
+    padding: 2rem 0.8rem 4rem;
+    margin: auto;
+    max-width: 400px;
+
+    @media (min-width: 820px){
+        max-width: 800px;
+    }
+}

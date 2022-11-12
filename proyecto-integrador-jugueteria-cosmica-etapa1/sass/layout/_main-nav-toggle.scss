@@ -1,7 +1,0 @@
-.main-nav-toggle{
-    display: none;
-
-    &:checked ~ .main-header .main-header__main-nav-container{
-        left: 0;
-    }
-}

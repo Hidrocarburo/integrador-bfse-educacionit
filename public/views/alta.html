@@ -1,0 +1,94 @@
+<header class="hero-section">
+    <h2 class="hero-section__text hero-section__text--uppercase">Alta de productos</h2>
+</header>
+
+<div class="upload-form">
+    <div class="form">
+        <form action="/api/products" id="createProductForm" class="form__form" method="post" enctype="multipart/form-data">
+            <input type="hidden" id="id" name="id">
+            <div class="form__input-container">
+                <input id="productName" name="productName" type="text" placeholder=" " class="form__input" title="Nombre del producto">
+                <label for="productName" class="form__label">Nombre del producto</label>
+                <span class="form__error-item"></span>
+            </div>
+            <div class="form__file-container">
+                <p class="form__file-text">Foto</p>
+                <input id="productImg" name="productImg" type="file" class="form__file" title="Seleccionar foto">
+                <label for="productImg" class="form__file-label">Seleccionar</label>
+                <span class="form__error-item"></span>
+            </div>
+            <div class="form__input-container">
+                <input id="productBrand" name="productBrand" type="text" placeholder=" " class="form__input" title="Marca">
+                <label for="productBrand" class="form__label">Marca</label>
+                <span class="form__error-item"></span>
+            </div>
+            <div class="form__select-container">
+                <input id="productCategory" name="productCategory" type="text" placeholder=" " class="form__input" title="Categoría">
+                <label for="productCategory" class="form__label">Categoría</label>
+                <span class="form__error-item"></span>
+            </div>
+            <div class="form__input-group">
+                <div class="form__input-container">
+                    <input id="productMinAge" name="productMinAge" type="number" placeholder=" " class="form__input form__input--variant" title="Edad desde">
+                    <label for="productMinAge" class="form__label">Edad desde</label>
+                    <select id="productMinAgeVariant" class="form__input-variant-select" title="Años o meses">
+                        <option value="1" selected title="Años">A</option>
+                        <option value="12" title="Meses">M</option>
+                    </select>
+                    <span class="form__error-item form__error-item--variant"></span>
+                </div>
+                <div class="form__input-container">
+                    <input id="productMaxAge" name="productMaxAge" type="number" placeholder=" " class="form__input form__input--variant" title="Edad hasta">
+                    <label for="productMaxAge" class="form__label">Edad hasta</label>
+                    <select id="productMaxAgeVariant" class="form__input-variant-select" title="Años o meses">
+                        <option value="1" selected title="Años">A</option>
+                        <option value="12" title="Meses">M</option>
+                    </select>
+                    <span class="form__error-item form__error-item--variant"></span>
+                </div>
+            </div>
+            <div class="form__input-container">
+                <input id="productPrice" name="productPrice" type="number" placeholder=" " class="form__input" title="Precio">
+                <label for="productPrice" class="form__label">Precio</label>
+                <span class="form__error-item"></span>
+            </div>
+            <div class="form__textarea-container">
+                <textarea name="productLongDesc" id="productLongDesc" cols="30" rows="10" placeholder=" " class="form__textarea" title="Descripción larga"></textarea>
+                <label for="productLongDesc" class="form__textarea-label">Descripción larga</label>
+                <span class="form__error-item"></span>
+            </div>
+            <div class="form__textarea-container">
+                <textarea name="productShortDesc" id="productShortDesc" cols="30" rows="5" placeholder=" " class="form__textarea" title="Descripción corta"></textarea>
+                <label for="productShortDesc" class="form__textarea-label">Descripción corta</label>
+                <span class="form__error-item"></span>
+            </div>
+            <div class="form__input-group">
+                <div class="form__input-container">
+                    <input id="productStock" name="productStock" type="number" placeholder=" " class="form__input" title="Stock">
+                    <label for="productStock" class="form__label">Stock</label>
+                    <span class="form__error-item"></span>
+                </div>
+                <div class="form__checkbox-container">
+                    <input id="productFreeShipping" value="true" name="productFreeShipping" type="checkbox" class="form__checkbox" title="Envío sin cargo">
+                    <label for="productFreeShipping" class="form__checkbox-label">Envío sin cargo</label>
+                </div>
+            </div>
+            <div class="form__submit-btn-container">
+                <button type="submit" id="btnSubmit" class="form__submit-btn" title="Enviar"> Crear </button>
+                <button type="submit" id="btnUpdate" class="form__submit-btn form__submit-btn--disabled" title="Modificar" disabled>Modificar</button>
+                <button type="button" id="btnCancel" class="form__submit-btn form__submit-btn--disabled" title="Cancelar" disabled>Cancelar</button>
+            </div>
+            <div class="form__error-list-container form__error-list-container--hidden">
+                <ul class="form__error-list">
+                </ul>
+            </div>
+        </form>
+    </div>
+</div>
+
+<section class="section-products-table">
+    <h2>Listado de productos</h2>
+    <div class="products-table-container"></div>
+</section>
+
+<script src="/js/form.js"></script>

@@ -1,0 +1,120 @@
+@use '../abstracts/colors' as c;
+
+.main-header{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    position: fixed;
+    background-color: c.$color5;
+    width: 100%;
+    padding: 0 0.8rem;
+    top: 32px;
+    z-index: 100;
+    border-bottom: 4px solid c.$color6;
+
+    &__hamburger-button-container{
+        order: 0;
+        // @media (min-width: 768px){
+        //     display: none;
+        // }
+    }
+
+    &__logo-container{
+        order: 1;
+        padding: 0.5em 0;
+        margin-left: 1.5rem;
+        @media (min-width: 768px){
+                margin-left: 0;
+                margin-right: 1.5rem;
+        }
+    }
+
+    &__logo{
+        width: 57px;
+        height: auto;
+        max-width: 100%;
+        @media (min-width: 768px){
+            width: 64px;
+    }
+    }
+
+    &__search-form-container{
+        order: 2;
+        flex-grow: 1;
+        text-align: right;
+        margin-right: 1.5rem;
+
+        // @media (min-width: 768px){
+        //     order: 2;
+        //     flex: 0 1 15em;
+        // }
+
+        @media (min-width: 450px) and (max-width: 767px), (min-width: 1024px){
+            display: none;
+        }
+    }
+
+    &__search-form-img{
+        width: 1.25rem;
+    }
+
+    &__cart-button-container{
+        order: 3;
+        // @media (min-width: 768px){
+        //     order: 3
+        // }
+    }
+
+    &__cart-button-img{
+        width: 1.25rem;
+    }
+    
+    &__main-nav-container{
+        background-color: yellow;
+        position: absolute;
+        flex-grow: 1;
+        top: 72px;
+        left: -55vw;
+        z-index: 100;
+        transition: left 250ms ease-out;
+        animation: main-nav-closed 250ms linear forwards;
+        @media (min-width: 768px){
+            background-color: transparent;
+            position: static;
+            flex-grow: 1;
+            flex-basis: auto;
+            order: 1;
+            display: block;
+            animation: main-nav-opened 250ms linear forwards;
+        }
+    }
+
+    &__search-form-label{
+        cursor: pointer;
+    }
+
+    &__search-input-container{
+        display: none;
+        position: absolute;
+        background-color: c.$color5;
+        width: 100%;
+        left: 0;
+        height: 100%;
+        z-index: 200;
+
+        @media (min-width: 450px) and (max-width: 767px), (min-width: 1024px){
+            position: static;
+            width: auto;
+            flex: auto;
+            display: block;
+            order: 2;
+            margin: 0 1.5rem;
+        }
+    }
+}
+
+@keyframes main-nav-closed {
+    0% {opacity: 1}
+    95% {opacity: 1}
+    100% {opacity: 0}
+}
