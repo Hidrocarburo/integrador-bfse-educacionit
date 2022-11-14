@@ -45,8 +45,6 @@ const putProduct = async (req, res) => {
         product.productImg = productImg.path.slice(6);;
     }
 
-    console.log(product);
-
     const updatedProduct = await api.updateProduct(id, product) || {};
     res.json(updatedProduct);
 };

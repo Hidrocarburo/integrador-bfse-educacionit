@@ -1,5 +1,41 @@
 class Http {
 
+    /* POST CONTENT TYPES*/
+    postContentType = {
+        json: async (url, data, body) => {
+            return await fetch(url, {
+                method: 'post',
+                body: JSON.stringify(data),
+                headers: { 'content-type': 'application/json' },
+            }).then(r => r.json());
+        },
+
+        formData: async (url, data, body) => {
+            return await fetch(url, {
+                method: 'post',
+                body: body,
+            }).then(r => r.text());
+        }
+    }
+
+    /* PUT CONTENT TYPES*/
+    putContentType = {
+        json: async (url, id, data, body) => {
+            return await fetch(url + id, {
+                method: 'put',
+                body: JSON.stringify(data),
+                headers: { 'content-type': 'application/json' },
+            }).then(r => r.json());
+        },
+
+        formData: async (url, id, data, body) => {
+            return await fetch(url + id, {
+                method: 'put',
+                body: body,
+            }).then(r => r.text());
+        }
+    }
+
     /* GET */
     async get(url, id) {
         try {
@@ -10,38 +46,18 @@ class Http {
     }
 
     /* POST */
-    async post(url, dato) {
+    async post(url, data, body, type = 'json') {
         try {
-            const formData  = new FormData();
-
-            for(const name in dato) {
-                formData.append(name, dato[name]);
-            }
-
-            console.log(formData);
-
-            return await fetch(url, {
-                method: 'post',
-                body: formData
-            }).then(r => r.text());
+            return this.postContentType[type](url, data, body);
         } catch (error) {
             console.error('ERROR POST', error);
         }
     }
 
     /* PUT */
-    async put(url, id, dato) {
+    async put(url, id, data, body, type = 'json') {
         try {
-            const formData  = new FormData();
-
-            for(const name in dato) {
-                formData.append(name, dato[name]);
-            }
-
-            return await fetch(url + id, {
-                method: 'put',
-                body: formData
-            }).then(r => r.text());
+            return this.putContentType[type](url, id, data, body);
         } catch (error) {
             console.error('ERROR PUT', error);
         }
@@ -50,14 +66,11 @@ class Http {
     /* DELETE */
     async delete(url, id) {
         try {
-            return await fetch(url + id, { method: 'delete' }).then(r => r.json());
+            return await fetch(url + (id || ''), { method: 'delete' }).then(r => r.json());
         } catch (error) {
             console.error('ERROR DELETE', error);
         }
-    }   
-    async del() {
-        console.error('No llamar a del(), sino a delete()!');
-    }   
+    }
 }
 
 const http = new Http();

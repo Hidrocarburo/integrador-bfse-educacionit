@@ -15,13 +15,24 @@ class ProductService {
     }
 
     async saveProduct(product) {
-        console.log('servicio:', product);
-        const savedProduct = await http.post(this.URL_PRODUCTS, product);
+        const formData  = new FormData();
+
+        for(const name in product) {
+            formData.append(name, product[name]);
+        }
+
+        const savedProduct = await http.post(this.URL_PRODUCTS, product, formData, 'formData');
         return savedProduct;
     }
 
     async updateProduct(id, product) {
-        const updatedProduct = await http.put(this.URL_PRODUCTS, id, product);
+        const formData  = new FormData();
+
+        for(const name in product) {
+            formData.append(name, product[name]);
+        }
+
+        const updatedProduct = await http.put(this.URL_PRODUCTS, id, product, formData, 'formData');
         return updatedProduct;
     }
 

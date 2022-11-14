@@ -1,31 +1,31 @@
 {{#if products.length }}    
     {{#each products}}
-    <div id="{{id}}" class="card">
-        <article class="card__article">
-            <div class="card__image-container">
-                <img class="card__image" src="{{productImg}}" alt="Producto">
-            </div>
-            <div class="card__content">
-                <div class="card__heading-container">
-                    <h2 class="card__heading">{{productName}}</h2>
+        <div id="{{id}}" class="card">
+            <article class="card__article">
+                <div class="card__image-container">
+                    <img class="card__image" src="{{productImg}}" alt="Producto">
                 </div>
-                <div class="card__details">
-                    <div class="card__price-container">
-                        <p class="card__price">{{productPrice}}</p>
+                <div class="card__content">
+                    <div class="card__heading-container">
+                        <h2 class="card__heading">{{productName}}</h2>
                     </div>
-                    <div class="card__description-container">
-                        <p class="card__description">{{productShortDesc}}</p>
-                    </div>
-                    <div class="card__link-container">
-                        <a href="#" class="card__link">
-                            <img class="card__link-img" src="img/icons/cart-shopping-solid.svg" alt="">
-                            <p class="card__link-text">Añadir</p>
-                        </a>
+                    <div class="card__details">
+                        <div class="card__price-container">
+                            <p class="card__price">{{productPrice}}</p>
+                        </div>
+                        <div class="card__description-container">
+                            <p class="card__description">{{productShortDesc}}</p>
+                        </div>
+                        <div class="card__link-container">
+                            <a href="#" class="card__link">
+                                <img class="card__link-img" src="img/icons/cart-shopping-solid.svg" alt="">
+                                <p class="card__link-text">Añadir</p>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </article>
-    </div>
+            </article>
+        </div>
     {{/each}}
 {{else}}
     <h2>No se encontraron productos</h2>

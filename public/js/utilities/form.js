@@ -303,7 +303,7 @@ class Form {
     }
     
     static loadForms = async () => {
-        let forms = document.getElementsByClassName('form');
+        const forms = document.getElementsByClassName('form');
     
         for(let formContainer of forms){
             let form = formContainer.querySelector('.form__form');
@@ -323,7 +323,7 @@ class Form {
             form.addEventListener('submit', async (e)=>{
                 e.preventDefault();
                 let hasErrors = false;
-                let errorList = [];
+                const errorList = [];
                 const formElements = form.elements;
         
                 for(let element of formElements){

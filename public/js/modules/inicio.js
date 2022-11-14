@@ -1,34 +1,43 @@
 import productController from '/js/controllers/product.js';
+import cartController from '/js/controllers/cart.js';
+import Requests from '/js/utilities/requests.js';
+import Toast from "/js/utilities/toasts.js";
+import Cart from '/js/utilities/cart.js';
 
 class PageInicio{
     static handlebarsTemplate = ''
     static products = '';
 
-    static async ajax(url, responseType = 'text', method = 'get') {
-        return await fetch(url, { method: method }).then(r => r[responseType]());
-    }
-    
-    static async getHbsTemplate (URL) {
-        try {
-            const pseudoHTML = await PageInicio.ajax(URL);
-            return pseudoHTML
-        } catch(error) {
-            console.error('getHbsTemplate() exception: error while trying to get hbs template: ', error);
-            return '';
-        }
+    static bindAddToCartEvent = async (cardsContainer) => {
+        cardsContainer.addEventListener('click', async e => {
+            if (e.target.classList.contains('card__link') ||
+                !!e.target.closest('.card__link'))
+            {
+                e.preventDefault();
+                const product = e.target.closest('.card');
+
+                await cartController.saveCartProduct({productId: product.id, productQuantity: '1'});
+
+                Cart.loadCart();
+                Toast.showToast({
+                    title: 'Producto agregado al carrito',
+                    description: '¡El producto se agregó al carrito correctamente!'
+                });
+            }
+        });
     }
 
     static async init () {
 
         PageInicio.products = await productController.getProducts();
 
-        const pseudoHTML = await PageInicio.getHbsTemplate('templates/product-cards.hbs');
+        const pseudoHTML = await Requests.getHbsTemplate('templates/product-cards.hbs');
         PageInicio.handlebarsTemplate = Handlebars.compile(pseudoHTML);
 
         const cardsContainer = document.querySelector('.cards-container');
         cardsContainer.innerHTML = PageInicio.handlebarsTemplate({ products: PageInicio.products });
-    
-        // bindAddToCartEvent(cardsContainer);
+
+        await PageInicio.bindAddToCartEvent(cardsContainer);
     }
 }
 

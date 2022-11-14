@@ -1,9 +1,9 @@
+import Cart from '/js/utilities/cart.js';
+import Requests from '/js/utilities/requests.js';
+import cartController from '/js/controllers/cart.js';
+import productController from '/js/controllers/product.js';
+
 class Main {
-
-    async ajax(url, method = 'get') {
-        return await fetch(url, { method: method }).then(r => r.text());
-    }
-
     getIdFromHash() {
         let id = location.hash.slice(1);
         if (id[0] === '/') {
@@ -44,7 +44,7 @@ class Main {
             }
             module.init();
         } catch (error) {
-            console.error(`Cannot import module '${moduleUrl}'.`);
+            console.error(`Cannot import module '${moduleUrl}', ${error}`);
         }
     }
 
@@ -52,7 +52,7 @@ class Main {
         const id = this.getIdFromHash();
         
         const viewUrl = this.getViewUrlFromId(id);
-        const viewContent = await this.ajax(viewUrl);
+        const viewContent = await Requests.ajax(viewUrl);
         document.querySelector('main').innerHTML = viewContent;
 
         this.setActiveLink(id);
@@ -62,6 +62,8 @@ class Main {
 
     async loadTemplates() {
         this.loadTemplate();
+        Cart.loadCart();
+        Cart.bindCartEvents()
         window.addEventListener('hashchange', () => this.loadTemplate());
     }
 
@@ -72,3 +74,5 @@ class Main {
 
 const main = new Main();
 main.start();
+
+export default Main;

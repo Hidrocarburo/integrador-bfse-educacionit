@@ -1,0 +1,32 @@
+{{#if productList.length }}
+    {{#each productList}}
+        <div id="{{product.id}}" class="cart-modal__product">
+            <img class="cart-modal__product-img" src="{{product.productImg}}">
+            <div class="cart-modal__product-heading">
+                <p class="cart-modal__product-heading-text">{{product.productName}}</p>
+            </div>
+            <div class="cart-modal__product-remove-button">
+                <img class="cart-modal__product-remove-button-img" src="img/icons/trash-solid.svg" alt="Retirar del carrito">
+            </div>
+            <div class="cart-modal__product-price">
+                <p class="cart-modal__product-price-text"> 
+                    <span class="cart-modal__product-quantity-price-text">{{product.productPrice}}</span>
+                    <span class="cart-modal__product-price-text--muted">(${{product.productPrice}}&nbsp;c/u)</span>
+                </p>
+            </div>
+            <div class="cart-modal__product-quantity-container">
+                <div class="cart-modal__product-quantity-remove-button">
+                    <span class="cart-modal__product-quantity-remove-button-text">-</span>
+                </div>
+                <div class="cart-modal__product-quantity">
+                    <span class="cart-modal__product-quantity-text">{{productQuantity}}</span>
+                </div>
+                <div class="cart-modal__product-quantity-add-button">
+                    <span class="cart-modal__product-quantity-add-button-text">+</span>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+{{else}}
+    <h2>No se encontraron productos</h2>
+{{/if}}

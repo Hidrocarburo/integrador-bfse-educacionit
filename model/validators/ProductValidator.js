@@ -16,7 +16,7 @@ class ProductValidator {
             productMaxAge: Joi.number().required().min(Joi.ref('productMinAge') || 0),
             productStock: Joi.number().required().min(1),
             productPrice: Joi.number().required().min(1),
-            productFreeShipping: Joi.bool(),
+            productFreeShipping: Joi.allow(),
             id: Joi.allow()
         });
 

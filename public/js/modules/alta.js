@@ -5,7 +5,7 @@ class PageAlta {
 
     static async submitAction() {
         return async function () {
-            let productToSave = {};
+            const productToSave = {};
 
             for (const field of PageAlta.fields) {
                 if(field.name === 'productImg'){
@@ -24,7 +24,7 @@ class PageAlta {
 
     static async updateAction() {
         return async function () {
-            let productToSave = {};
+            const productToSave = {};
 
             for (const field of PageAlta.fields) {
                 if(field.name === 'productImg'){
