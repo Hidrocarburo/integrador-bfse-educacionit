@@ -3,6 +3,8 @@ import formUtil from '../utilities/form.js'
 
 class PageAlta {
 
+    static elementHasClass = (e, checkClass) => e.target.classList.contains(checkClass) || !!e.target.closest(`.${checkClass}`);
+
     static async submitAction() {
         return async function () {
             const productToSave = {};
@@ -146,13 +148,12 @@ class PageAlta {
         };
 
         document.querySelector('.products-table-container').addEventListener('click', e => {
-            if (e.target.classList.contains('products-table__btn--delete') ||
-            !!e.target.closest('.products-table__btn--delete')) {
+            if (PageAlta.elementHasClass(e, 'products-table__btn--delete')){
                 deleteProduct(e);
                 return;
             }
-            if (e.target.classList.contains('products-table__btn--edit') ||
-            !!e.target.closest('.products-table__btn--edit')) {
+
+            if (PageAlta.elementHasClass(e, 'products-table__btn--edit')){
                 editProduct(e);
                 return;
             }

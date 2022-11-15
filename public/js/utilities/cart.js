@@ -4,6 +4,8 @@ import orderController from '/js/controllers/order.js';
 import Requests from '/js/utilities/requests.js';
 
 class Cart {
+    static elementHasClass = (e, checkClass) => e.target.classList.contains(checkClass) || !!e.target.closest(`.${checkClass}`);
+
     static async getProductsByCards () {
         const cartProductList = await cartController.getCartProducts();
         const productList = [];
@@ -34,23 +36,17 @@ class Cart {
                 return;
             }
     
-            if (e.target.classList.contains('cart-modal__product-quantity-add-button') ||
-                !!e.target.closest('.cart-modal__product-quantity-add-button'))
-            {
+            if (Cart.elementHasClass(e, 'cart-modal__product-quantity-add-button')){
                 const productCard = e.target.closest('.cart-modal__product');
                 Cart.updateCartProductQuantity(productCard, true);
             }
     
-            if (e.target.classList.contains('cart-modal__product-quantity-remove-button') ||
-                !!e.target.closest('.cart-modal__product-quantity-remove-button'))
-            {
+            if (Cart.elementHasClass(e, 'cart-modal__product-quantity-remove-button')){
                 const productCard = e.target.closest('.cart-modal__product');
                 Cart.updateCartProductQuantity(productCard, false);
             }
     
-            if (e.target.classList.contains('cart-modal__product-remove-button') ||
-                !!e.target.closest('.cart-modal__product-remove-button'))
-            {
+            if (Cart.elementHasClass(e, 'cart-modal__product-remove-button')){
                 const productCard = e.target.closest('.cart-modal__product');
                 Cart.removeCartProduct(productCard);
             }
