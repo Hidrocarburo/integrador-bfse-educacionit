@@ -1,6 +1,6 @@
 import cartService from '/js/services/cart.js';
 
-class cartController {
+class CartController {
 
     async getCartProducts() {
         const products = await cartService.getCartProducts();
@@ -8,25 +8,25 @@ class cartController {
     }
     
     async saveCartProduct(product) {
-        const savedProduct = await cartService.saveCartProduct(product);
-        return savedProduct;
+        const savedCartProduct = await cartService.saveCartProduct(product);
+        return savedCartProduct;
     }
 
     async updateCartProduct(id, product) {
-        const updatedProduct = await cartService.updateCartProduct(id, product);
-        return updatedProduct;
+        const updatedCartProduct = await cartService.updateCartProduct(id, product);
+        return updatedCartProduct;
     }
 
     async deleteCartProduct(id) {
-        const deletedProduct = await cartService.deleteCartProduct(id);
-        return deletedProduct;
+        const deletedCartProduct = await cartService.deleteCartProduct(id);
+        return deletedCartProduct;
     }
 
     async deleteAllCartProducts() {
-        const deletedProducts = await cartService.deleteAllCartProducts();
-        return deletedProducts;
+        const deletedCartProducts = await cartService.deleteAllCartProducts();
+        return deletedCartProducts;
     }
 }
 
-const productController = new cartController();
-export default productController;
+const cartController = new CartController();
+export default cartController;

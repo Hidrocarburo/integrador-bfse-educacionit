@@ -1,7 +1,5 @@
 import Cart from '/js/utilities/cart.js';
 import Requests from '/js/utilities/requests.js';
-import cartController from '/js/controllers/cart.js';
-import productController from '/js/controllers/product.js';
 
 class Main {
     getIdFromHash() {

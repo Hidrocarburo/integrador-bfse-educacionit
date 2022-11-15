@@ -56,8 +56,6 @@ class ProductModelMongoDB {
             return {};
         }
         try {
-            // const product = await ProductsModel.find({_id: id});
-            // const product = await ProductsModel.findOne({_id: id});
             const product = await ProductsModel.findById(id).lean() || {};
             return DBMongoDB.getObjectWithId(product);
         } catch (error) {
@@ -88,7 +86,6 @@ class ProductModelMongoDB {
             return {};
         }
         try {
-            // await ProductsModel.deleteOne({_id: id});
             const deletedProduct = await ProductsModel.findByIdAndDelete(id).lean();
             return DBMongoDB.getObjectWithId(deletedProduct);
         } catch (error) {

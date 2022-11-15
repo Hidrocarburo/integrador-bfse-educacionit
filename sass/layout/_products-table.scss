@@ -1,0 +1,64 @@
+@use '../abstracts/colors' as c;
+
+.products-table{
+
+    background-color: c.$color6;
+    margin: 2rem auto;
+
+    &__caption{
+        text-align: center;
+        padding: 2rem 0;
+        font-size: 1.5rem;
+        background: c.$linear-gradient1;
+        color: c.$color5;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    &__head{
+        background-color: c.$color6;
+        color: c.$color5;
+    }
+
+    &__header{
+        &--id-cell{
+            display: none;
+        }
+    }
+
+    &__cell{
+        border: 2px solid c.$color14;
+        border-radius: 5px;
+        padding: 0.5rem;
+        background-color: c.$color5;
+
+        &--id-cell{
+            display: none;
+        }
+    }
+
+    &__btn-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    &__btn{
+        border: none;
+        background-color: c.$color5;
+        cursor: pointer;
+        height: fit-content;
+        padding: 0 0.25rem;
+    }
+
+    &__btn-img{
+        width: 16px;
+        height: auto;
+        background-color: none;
+    }
+
+    &__no-products{
+        text-align: center;
+    }
+}

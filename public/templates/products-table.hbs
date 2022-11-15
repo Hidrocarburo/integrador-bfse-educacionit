@@ -1,35 +1,41 @@
 {{#if products.length }}
-    <table class="table-products">
-        <caption>Productos</caption>
-        <thead>
-            <tr>
-                <th scope="column">Id</th>
-                <th scope="column">Nombre</th>
-                <th scope="column">Precio</th>
-                <th scope="column">Descripción</th>
-                <th scope="column">Acciones</th>
+    <table class="products-table">
+        <caption class="products-table__caption">Productos</caption>
+        <thead class="products-table__head">
+            <tr class="products-table__row">
+                <th class="products-table__header products-table__header--id-cell" scope="column">Id</th>
+                <th class="products-table__header" scope="column">Nombre</th>
+                <th class="products-table__header" scope="column">Precio</th>
+                <th class="products-table__header" scope="column">Descripción</th>
+                <th class="products-table__header" scope="column">Acciones</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="products-table__body">
             {{#each products}}
-                <tr data-id="{{id}}">
-                    <td class="cell-id">{{id}}</td>
-                    <td class="cell-name">{{productName}}</td>
-                    <td class="cell-price">{{productPrice}}</td>
-                    <td class="cell-description">{{productShortDesc}}</td>
-                    <td>
-                        <button class="btn-delete">❌</button>
-                        <button class="btn-edit">🖋️</button>
+                <tr class="products-table__row" data-id="{{id}}">
+                    <td class="products-table__cell products-table__cell--id-cell">{{id}}</td>
+                    <td class="products-table__cell">{{productName}}</td>
+                    <td class="products-table__cell">${{productPrice}}</td>
+                    <td class="products-table__cell">{{productShortDesc}}</td>
+                    <td class="products-table__cell products-table__cell--btn-cell">
+                        <div class="products-table__btn-container">
+                            <button class="products-table__btn products-table__btn--delete">
+                                <img class="products-table__btn-img" src="/img/icons/xmark-solid.svg" alt="Eliminar" title="Eliminar">
+                            </button>
+                            <button class="products-table__btn products-table__btn--edit">
+                                <img class="products-table__btn-img" src="/img/icons/pencil-solid.svg" alt="Eliminar" title="Eliminar">
+                            </button>
+                        </div>
                     </td>
                 </tr>
             {{/each}}
         </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="5">Se encontraron {{products.length}} productos</td>
+        <tfoot class="products-table__footer">
+            <tr class="products-table__row">
+                <td class="products-table__cell" colspan="5">Se encontraron {{products.length}} productos</td>
             </tr>
         </tfoot>
     </table>
 {{else}}
-    <p>No se encontraron productos</p>
+    <p class="products-table__no-products">No se encontraron productos</p>
 {{/if}}

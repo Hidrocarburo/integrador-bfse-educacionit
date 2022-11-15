@@ -50,7 +50,7 @@ class PageAlta {
     static async saveProduct(product) {
         const savedProduct = await productController.saveProduct(product);
         const products = await productController.getProducts();
-        console.log(`Ahora hay ${products.length} productos`);    
+
         PageAlta.renderTemplateTable(products);
         return savedProduct;
     }
@@ -58,7 +58,7 @@ class PageAlta {
     static async updateProduct(product) {
         const updatedProduct = await productController.updateProduct(product.id, product);
         const products = await productController.getProducts();
-        console.log(`Ahora hay ${products.length} productos`);    
+
         PageAlta.renderTemplateTable(products);
         return updatedProduct;
     }
@@ -124,10 +124,8 @@ class PageAlta {
             const row = e.target.closest('tr');
             const id = row.dataset.id;
             const deletedProduct = await productController.deleteProduct(id);
-            console.log('Producto eliminado:', deletedProduct);
-            // row.remove();
+
             const products = await productController.getProducts();
-            console.log(`Aún quedan ${products.length} productos`);    
             PageAlta.renderTemplateTable(products);
         };
 
@@ -142,15 +140,19 @@ class PageAlta {
             PageAlta.disableButton(PageAlta.btnCreate, true)
             PageAlta.disableButton(PageAlta.btnUpdate, false)
             PageAlta.disableButton(PageAlta.btnCancel, false)
+
+            scrollTo(0,0);
             formUtil.submitEvent = PageAlta.updateAction()
         };
 
         document.querySelector('.products-table-container').addEventListener('click', e => {
-            if (e.target.classList.contains('btn-delete')) {
+            if (e.target.classList.contains('products-table__btn--delete') ||
+            !!e.target.closest('.products-table__btn--delete')) {
                 deleteProduct(e);
                 return;
             }
-            if (e.target.classList.contains('btn-edit')) {
+            if (e.target.classList.contains('products-table__btn--edit') ||
+            !!e.target.closest('.products-table__btn--edit')) {
                 editProduct(e);
                 return;
             }

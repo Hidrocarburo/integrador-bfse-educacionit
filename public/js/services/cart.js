@@ -1,6 +1,6 @@
 import http from '/js/clients/http.client.js';
 
-class ProductService {
+class CartService {
     
     URL_CART = '/api/cart/'
 
@@ -10,26 +10,26 @@ class ProductService {
     }
 
     async saveCartProduct(product) {
-        const savedProduct = await http.post(this.URL_CART, product);
-        return savedProduct;
+        const savedCartProduct = await http.post(this.URL_CART, product);
+        return savedCartProduct;
     }
 
     async updateCartProduct(id, product) {
-        const updatedProduct = await http.put(this.URL_CART, id, product);
-        return updatedProduct;
+        const updatedCartProduct = await http.put(this.URL_CART, id, product);
+        return updatedCartProduct;
     }
 
     async deleteCartProduct(id) {
-        const deletedProduct = await http.delete(this.URL_CART, id);
-        return deletedProduct;
+        const deletedCartProduct = await http.delete(this.URL_CART, id);
+        return deletedCartProduct;
     }
 
     async deleteAllCartProducts() {
-        const deletedProducts = await http.delete(this.URL_CART);
-        return deletedProducts;
+        const deletedCartProducts = await http.delete(this.URL_CART);
+        return deletedCartProducts;
     }
 }
 
-const productService = new ProductService();
+const cartService = new CartService();
 
-export default productService;
+export default cartService;

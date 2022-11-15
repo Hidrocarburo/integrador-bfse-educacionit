@@ -3,13 +3,13 @@ import Joi from "joi";
 
 class CartValidator {
     
-    static validate(product) {
+    static validate(cart) {
         const cartProductSchema = Joi.object({
             productId: Joi.string().required().min(24).max(24),
             productQuantity: Joi.number(),
         });
 
-        const { error } = cartProductSchema.validate(product);
+        const { error } = cartProductSchema.validate(cart);
 
         return error;
     }

@@ -1,8 +1,22 @@
 import cartController from '/js/controllers/cart.js';
 import productController from '/js/controllers/product.js';
+import orderController from '/js/controllers/order.js';
 import Requests from '/js/utilities/requests.js';
 
 class Cart {
+    static async getProductsByCards () {
+        const cartProductList = await cartController.getCartProducts();
+        const productList = [];
+
+        for (let element of cartProductList){
+            const product = await productController.getProduct(element.productId);
+
+            Object.keys(product).length > 0 ? productList.push({product, productQuantity: element.productQuantity}) : '' ;
+        }
+
+        return productList;
+    }
+
     static async bindCartEvents () {
         const cartModalLink = document.querySelector('#cartModalLink')
         const cartModal = document.querySelector('#cartModal');
@@ -42,7 +56,21 @@ class Cart {
             }
 
             if (e.target.classList.contains('cart-modal__total-buy-button')){
+
+                const productList = {};
+                productList.products = await Cart.getProductsByCards();
+
+                if (productList.products.length < 1){
+                    console.warn('Carrito vacío');
+                    return;
+                }
+                const newOrder = await orderController.createOrder(productList);
                 await cartController.deleteAllCartProducts();
+
+                await Cart.loadCart();
+                
+                console.warn('Orden generada');
+                console.warn(newOrder);
             }
         });
     
@@ -55,14 +83,7 @@ class Cart {
     }
 
     static async loadCart() {
-        const cartProductList = await cartController.getCartProducts();
-        const productList = [];
-
-        for (let element of cartProductList){
-            const product = await productController.getProduct(element.productId);
-
-            Object.keys(product).length > 0 ? productList.push({product, productQuantity: element.productQuantity}) : '' ;
-        }
+        const productList = await Cart.getProductsByCards();
 
         const pseudoHTML = await Requests.getHbsTemplate('/templates/cart-products.hbs');
         const template = Handlebars.compile(pseudoHTML);
@@ -82,13 +103,13 @@ class Cart {
             await cartController.deleteCartProduct(updatedProduct.productId);
         }
 
-        Cart.loadCart();
+        await Cart.loadCart();
     }
 
     static removeCartProduct = async (productCard) => {
         const productId = productCard.id;
         await cartController.deleteCartProduct(productId);
-        Cart.loadCart();
+        await Cart.loadCart();
     }
 
     static updateCartTotals = (cartProductsContainer) => {
