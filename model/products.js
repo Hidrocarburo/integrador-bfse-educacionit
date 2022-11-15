@@ -70,6 +70,10 @@ class ProductModelMongoDB {
             return {};
         }
         try {
+            if (product.productFreeShipping === undefined){
+                product.productFreeShipping = false;
+            }
+
             const updatedProduct = await ProductsModel.findByIdAndUpdate(id, {$set: product}, {
                 returnDocument: 'after'
             }).lean();

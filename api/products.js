@@ -30,6 +30,10 @@ const createProduct = async product => {
     const validationError = ProductValidator.validate(product);
 
     if(!validationError) {
+        if (product.productFreeShipping === 'undefined'){
+            product.productFreeShipping = false;
+        }
+
         const createdProduct = await modelProducts.createProduct(product);
         return createdProduct;
     } else {
@@ -47,6 +51,10 @@ const updateProduct = async (id, product) => {
     const validationError = ProductValidator.validate(product);
 
     if(!validationError) {
+        if (product.productFreeShipping === 'undefined'){
+            product.productFreeShipping = false;
+        }
+
         const updatedProduct = await modelProducts.updateProduct(id, product);
         return updatedProduct;    
     } else {
